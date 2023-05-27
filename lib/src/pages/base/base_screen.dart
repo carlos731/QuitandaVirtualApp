@@ -1,3 +1,4 @@
+import 'package:app/src/pages/orders/orders_tab.dart';
 import 'package:flutter/material.dart';
 
 import '../cart/cart_tab.dart';
@@ -22,11 +23,11 @@ class _BaseScreenState extends State<BaseScreen> {
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
-        children: [
-          const HomeTab(),
-          const CartTab(),
-          Container(color: Colors.blue),
-          const ProfileTab(),
+        children: const[
+          HomeTab(),
+          CartTab(),
+          OrdersTab(),
+          ProfileTab(),
         ],
       ),
       //BottomNavigation
