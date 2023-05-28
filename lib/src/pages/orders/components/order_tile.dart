@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../models/cart_item_model.dart';
 import '../../../models/order_model.dart';
 import '../../../services/utils_services.dart';
+import '../../common_widgets/payment_dialog.dart';
 import 'order_status_widget.dart';
 
 class OrderTile extends StatelessWidget {
@@ -107,7 +108,16 @@ class OrderTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) {
+                      return PaymentDialog(
+                        order: order,
+                      );
+                    },
+                  );
+                },
                 icon: Image.asset(
                   'assets/app_images/pix.png',
                   height: 18,
@@ -115,7 +125,7 @@ class OrderTile extends StatelessWidget {
                 label: const Text('Ver QR Code Pix'),
               ),
               //replacement: outro widget,
-            )
+            ),
           ],
         ),
       ),
